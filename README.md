@@ -1,4 +1,4 @@
-#  Express&MangoDB Project
+#  Express-MangoDB Project
 
 ## How to launch the project
  ### 1. install node js 
