@@ -1,4 +1,4 @@
-#  ExpressMangoDBproject
+#  ExpressMangoDBp Project
 
 ## How to launch the project
  ### 1. install node js 
