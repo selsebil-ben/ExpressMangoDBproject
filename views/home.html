@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   
 </head>
 <body>
 
-<h1 class="title">
-  Home page :)
-</h1>
-<input type="text">
-<br>
-<br>
-<button class="button1">Send to DB</button>
+    <h1 class="title">
+      Hello, what's your name ?
+    </h1>
+    <form method="post" action="/adduser">
+      <input name="userName" type="text">
+        <br>
+        <br>
+      <button>Send to DB</button>
+    </form>
+
 </body>
 </html>
