@@ -9,6 +9,8 @@ const uri = "mongodb+srv://salsa:salsa@cluster0.mtjwq.mongodb.net/UserManagement
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
+app.set('view engine','ejs');
+
 // git bash path : cd /c/Users/Selsebil/Desktop/my-github/ExpressMangoDB
 
 mongoose.connect(uri)
@@ -16,8 +18,9 @@ mongoose.connect(uri)
 .catch( (Error) => {console.log(Error)});
 
 app.get('/', (req, res) => {
-  res.sendFile("./views/home.html", {root : __dirname})
-  console.log("Starting page")
+  //res.sendFile("./views/home.html", {root : __dirname})
+  res.render("home", {title: "Home page"})
+  
 })
 
 app.post("/adduser", (req, res) => {
@@ -30,7 +33,7 @@ app.post("/adduser", (req, res) => {
 })
 
 app.get('/success', (req, res) => {
-  // res.sendFile("./views/home.html", {root : __dirname})
+  
   res.send("Username added succefully :D")
 })
 
