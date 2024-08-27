@@ -1,19 +1,21 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/user');
 
 const app = express();
 const port = 3001;
-const uri = "mongodb+srv://salsa:salsa@cluster0.mtjwq.mongodb.net/UserManagement?retryWrites=true&w=majority&appName=Cluster0";
+const dbString = process.env.DATABASE_URL;
+
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
 app.set('view engine','ejs');
 
-// git bash path : cd /c/Users/Selsebil/Desktop/my-github/ExpressMangoDB
 
-mongoose.connect(uri)
+
+mongoose.connect(dbString)
 .then( () => {console.log("Database successfuly conencted !")})
 .catch( (Error) => {console.log(Error)});
 
