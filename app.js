@@ -27,20 +27,26 @@ liveReloadServer.refresh("/");
 }, 100);
 });
 
-//---------------------------------
 
 
-
+//--------------DB Connection -------------------
 mongoose.connect(dbString)
 .then( () => {console.log("Database successfuly conencted !")})
 .catch( (Error) => {console.log(Error)});
 
+//-----------------Get API 1 ---------------
 app.get('/', (req, res) => {
-
-
 res.render("home", {title: "Home page"})})
 
-
+//-----------------Get API 2 ---------------
+app.get('/success', (req, res) => {
+  
+  User.find()
+  .then( (result) => { res.render("index", {title : "Confirmation page", uname : result})})
+  .catch( (err) => { console.log(err)})
+    
+})
+//----------------- POST API---------------
 app.post("/adduser", (req, res) => {
   console.log(req.body);
   const name = new User(req.body);
@@ -50,13 +56,7 @@ app.post("/adduser", (req, res) => {
    
 })
 
-app.get('/success', (req, res) => {
-  
-  User.find()
-  .then( (result) => { res.render("index", {title: "Confirmation page", uname : result})})
-  .catch( (err) => { console.log(err)})
-    
-})
+
 
 app.listen(port, () => {
   
