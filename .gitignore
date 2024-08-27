@@ -1,1 +1,11 @@
+#git bash path : cd /c/Users/Selsebil/Desktop/my-github/ExpressMangoDB
+
+
+# Ignore the .env file
+.env
+
+# Ignore all log files
+*.log
+
+# Ignore the node_modules directory
 node_modules
